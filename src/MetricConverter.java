@@ -12,28 +12,32 @@ class MetricConverter {
             finalNum = (float) (intialNum * 0.3937008);
             break;
           case "m":
-            finalNum = intialNum / 100;
+            finalNum = (intialNum / 100);
             break;
           default:
             System.out.println(badInput);
-            return finalNum;
+            return 0;
         }
+      break;
+
       case "m":
         switch (finalMetric) {
           case "cm":
-            finalNum = intialNum * 100;
+            finalNum = (intialNum * 100);
             break;
           case "in":
             finalNum = (float) (intialNum * 39.370);
             break;
           default:
             System.out.println(badInput);
-            return finalNum;
+            return 0;
         }
+      break;
+
       default:
-        System.out.printf("%.2f %s = %.2f %s &n", intialNum, intialMetric, finalNum, finalMetric);
-        return finalNum ;
+        System.out.printf("%.2f %s = %.2f %s \n", intialNum, intialMetric, finalNum, finalMetric);
     }
+    return finalNum;
   }
 
   public static void main(String[] args) throws Exception {
@@ -43,9 +47,9 @@ class MetricConverter {
     float intialNum;
     String intialMetric;
     String finalMetric;
-
+    float finalNum;
     while (true) {
-      System.out.println("Please input your metric to be converted, or exit to quit.");
+      System.out.println("Please input your metric to be converted, ex: 5m = in, or exit to quit.");
       System.out.println("Avaible conversions are:");
       System.out.println("    Centimeters to Inches");
       System.out.println("    Centimeters to Meters");
@@ -69,5 +73,4 @@ class MetricConverter {
       }
     }
   }
-
 }
